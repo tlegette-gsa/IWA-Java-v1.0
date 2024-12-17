@@ -53,9 +53,10 @@ jobs:
       # and run them directly from within your pipeline; see https://github.com/fortify/github-action#readme for
       # details.
       - name: Run FoD SAST Scan
-        uses: fortify/github-action@a92347297e02391b857e7015792cd1926a4cd418
-        with:
-          sast-scan: true
+      #  uses: fortify/github-action@a92347297e02391b857e7015792cd1926a4cd418
+      #  with:
+      #    sast-scan: true
+        run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid $FOD_RELEASE_ID -tc $FOD_TENANT -uc $FOD_USER $FOD_PAT 
         env:
           ### Required configuration when integrating with Fortify on Demand
           FOD_URL: https://fed.fortifygov.com
