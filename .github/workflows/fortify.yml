@@ -66,6 +66,7 @@ jobs:
           FOD_PAT: ${{secrets.FOD_PAT}}
           FOD_PASSWORD: ${{secrets.FOD_PAT}}
           FOD_RELEASE_ID: ${{secrets.FOD_RELEASE_ID}}
+          FOD_RELEASE: ${{secrets.FOD_RELEASE_ID}}
           ### Optional configuration when integrating with Fortify on Demand
           # EXTRA_PACKAGE_OPTS: -oss                       # Extra 'scancentral package' options, like '-oss'' if
                                                            # Debricked SCA scan is enabled on Fortify on Demand
