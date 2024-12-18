@@ -73,8 +73,8 @@ jobs:
           # EXTRA_FOD_LOGIN_OPTS: --socket-timeout=60s     # Extra 'fcli fod session login' options
           # FOD_RELEASE: MyApp:MyRelease                   # FoD release name, default: <org>/<repo>:<branch>; may
                                                            # replace app+release name with numeric release ID
-          # DO_WAIT: true                                  # Wait for scan completion, implied if 'DO_EXPORT: true'
-          # DO_EXPORT: true                                # Export SAST results to GitHub code scanning dashboard
+          DO_WAIT: true                                  # Wait for scan completion, implied if 'DO_EXPORT: true'
+          DO_EXPORT: true                                # Export SAST results to GitHub code scanning dashboard
           ### Required configuration when integrating with Fortify Hosted / Software Security Center & ScanCentral
           # SSC_URL: ${{secrets.SSC_URL}}                            # SSC URL
           # SSC_TOKEN: ${{secrets.SSC_TOKEN}}                        # SSC CIToken or AutomationToken
