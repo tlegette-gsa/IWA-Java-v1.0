@@ -19,13 +19,15 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: SpotBugs Plugin
-        run: mvn spotbugs:check  
+        run: mvn spotbugs:check
+      - name: Copy SARIF results
+        run: mkdir results && cp target/spotbugsSarif.json results
       - name: upload SARIF file as artifact
         uses: actions/upload-artifact@v4
         with:
           name: spotbugs-results.sarif
-          path: target/spotbugsSarif.json
+          path: results/spotbugsSarif.json
       - name: Upload SARIF file to GitHub
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: target/spotbugsSarif.json
+          sarif_file: results/spotbugsSarif.json
