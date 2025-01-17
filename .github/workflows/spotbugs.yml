@@ -1,0 +1,36 @@
+name: SpotBugs Code Scan
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - run: mvn --batch-mode --update-snapshots verify -DskipTests=true
+      - name: SpotBugs Plugin
+        run: mvn --batch-mode spotbugs:check
+      - name: list dir contents
+        run: ls -a
+      - name: Copy SARIF results
+        run: mkdir results && cp target/spotbugsSarif.json results
+      - name: upload SARIF file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spotbugs-results.sarif
+          path: results/spotbugsSarif.json
+      - name: Upload SARIF file to GitHub
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results/spotbugsSarif.json
