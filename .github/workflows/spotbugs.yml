@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -20,14 +18,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: SpotBugs Plugin
-      run: mvn spotbugs:check
-	  
-	- name: upload SARIF file as artifact
-	  uses: actions/upload-artifact@v4
-	  with:
+      run: mvn spotbugs:check  
+    - name: upload SARIF file as artifact
+      uses: actions/upload-artifact@v4
+      with:
 	    name: spotbugs-results.sarif
 	    path: target/spotbugsSarif.json
-	- name: Upload SARIF file to GitHub
+    - name: Upload SARIF file to GitHub
 	  uses: github/codeql-action/upload-sarif@v3
 	  # continue-on-error: true
 	  with:
