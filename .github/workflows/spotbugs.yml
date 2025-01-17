@@ -22,11 +22,9 @@ jobs:
       - name: upload SARIF file as artifact
         uses: actions/upload-artifact@v4
         with:
-	      name: spotbugs-results.sarif
-	      path: target/spotbugsSarif.json
+          name: spotbugs-results.sarif
+          path: target/spotbugsSarif.json
       - name: Upload SARIF file to GitHub
-	    uses: github/codeql-action/upload-sarif@v3
-	    # continue-on-error: true
-	    with:
-	      # Path to SARIF file relative to the root of the repository
-	      sarif_file: target/spotbugsSarif.json
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: target/spotbugsSarif.json
