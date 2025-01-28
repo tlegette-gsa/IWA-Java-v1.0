@@ -636,6 +636,7 @@
 				 	<failOnError>false</failOnError>
 					<effort>Max</effort>
 					<threshold>medium</threshold>
+					<includeFilterFile>spotbugs-security-include.xml</includeFilterFile>
 					<plugins>
 						<plugin>
 							<groupId>com.h3xstream.findsecbugs</groupId>
