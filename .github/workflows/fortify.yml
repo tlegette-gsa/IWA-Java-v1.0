@@ -32,6 +32,6 @@ jobs:
     secrets:
       FOD_USER: ${{ secrets.FOD_USER }}
       FOD_TENANT: ${{ secrets.FOD_TENANT }}
-      FOD_PASSWORD: ${{ secrets.FOD_PASSWORD }}
+      FOD_PASSWORD: ${{ secrets.FOD_PAT }}
   
     
