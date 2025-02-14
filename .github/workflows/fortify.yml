@@ -27,7 +27,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  steps:
-  - uses: GSA/tlegette/.github/workflows/fortify-bkup.yml
+  Fortify-AST-Scan:
+    uses: GSA/ise-appsec-sast/.github/workflows/gh-fortify.yml@main
   
     
