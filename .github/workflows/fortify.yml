@@ -27,6 +27,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Py-Fortify-AST-Scan:
-    uses: GSA/tlegette-IWA-Java-v1.0/.github/workflows/fortify-bkup.yml@main
+  steps:
+  - uses: GSA/tlegette/.github/workflows/fortify-bkup.yml
+  
     
