@@ -28,5 +28,5 @@ on:
 
 jobs:
   Py-Fortify-AST-Scan:
-    uses: GSA/ise-appsec/.github/workflows/gh-fortify.yml@PyTest1
+    uses: GSA/tlegette-IWA-Java-v1.0/.github/workflows/fortify-bkup.yml@main
     
