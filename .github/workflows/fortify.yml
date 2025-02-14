@@ -31,5 +31,7 @@ jobs:
     uses: GSA/ise-appsec-sast/.github/workflows/gh-fortify.yml@main
     secrets:
       FOD_USER: ${{ secrets.FOD_USER }}
+      FOD_TENANT: ${{ secrets.FOD_TENANT }}
+      FOD_PASSWORD: ${{ secrets.FOD_PASSWORD }}
   
     
